@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NxtNFT Launch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #141E30, #243B55);
+            color: #FFFFFF;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: #1F2833;
+            color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+            color: #66FCF1;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 20px;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: url('https://source.unsplash.com/1600x900/?blockchain,crypto') no-repeat center center / cover;
+            color: white;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .hero button {
+            background-color: #45A29E;
+            color: #FFFFFF;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .hero button:hover {
+            background-color: #66FCF1;
+        }
+        .stats {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #0B0C10;
+            margin: 20px 0;
+        }
+        .stats h2 {
+            font-size: 2.5rem;
+            color: #66FCF1;
+        }
+        .stats .stat-item {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+        footer {
+            background-color: #1F2833;
+            text-align: center;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #66FCF1;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .hero button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NxtNFT</h1>
+        <p>The future of NFT staking and rewards, powered by innovation.</p>
+    </header>
+
+    <div class="hero">
+        <h2>Stake NFTs. Earn Rewards.</h2>
+        <p>Welcome to NxtNFT, the ultimate platform for staking your NFTs and earning exclusive rewards in NXT tokens. Connect your wallet to get started.</p>
+        <button id="connectWalletButton" onclick="connectWallet()">Connect Wallet</button>
+        <p id="walletAddress" style="margin-top: 15px; font-size: 1.1rem; color: #66FCF1;"></p>
+    </div>
+
+    <div class="stats">
+        <h2>Platform Stats</h2>
+        <p class="stat-item">Total NFTs Staked: <span id="totalNFTs">0</span></p>
+        <p class="stat-item">Total Rewards Distributed: <span id="totalRewards">0</span> NXT</p>
+        <p class="stat-item">Active Users: <span id="activeUsers">0</span></p>
+    </div>
+
+    <footer>
+        <p>© 2025 NxtNFT. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        async function connectWallet() {
+            if (window.ethereum) {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    const walletAddress = accounts[0];
+                    document.getElementById("walletAddress").innerText = `Connected: ${walletAddress}`;
+                } catch (error) {
+                    alert("Failed to connect wallet. Please try again.");
+                }
+            } else {
+                alert("MetaMask not detected. Please install MetaMask.");
+            }
+        }
+
+        // Placeholder for dynamic stats (replace with actual logic later)
+        document.getElementById("totalNFTs").innerText = 532;
+        document.getElementById("totalRewards").innerText = 12450;
+        document.getElementById("activeUsers").innerText = 275;
+    </script>
+</body>
+</html>
